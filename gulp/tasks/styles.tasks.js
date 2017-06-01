@@ -27,9 +27,11 @@ function injectCss(cb) {
     if (!fs.existsSync(dstIndex)) {
         fs.copySync(srcIndex, dstIndex);
     }
-
+    var inject = require('gulp-inject');
+    var cssInject = gulp.src('./src/**/*.css', {read: false});
     // TODO use gulp-inject to wire up css in index.html
     return gulp.src(dstIndex, {base: conf.path.tmp()})
+        .pipe(inject(cssInject))
         .pipe(gulp.dest(conf.paths.tmp))
         .on('end', cb);
 }
