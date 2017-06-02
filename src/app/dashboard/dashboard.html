@@ -1,8 +1,4 @@
-<header class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="/dashboard"> Application - Computer Database </a>
-    </div>
-</header>
+<cdb-header page="$ctrl.page"></cdb-header>
 
 <section id="main">
     <div class="container">
@@ -81,24 +77,7 @@
 </section>
 
 <footer class="navbar-fixed-bottom">
-    <div class="container text-center">
-        <ul class="pagination">
-            <li>
-                <a ng-click="$ctrl.previousPage()" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li>
-                <a ng-click="$ctrl.nextPage()" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="btn-group btn-group-sm pull-right" role="group" >
-        <a class="btn btn-default" ng-click="$ctrl.pageIdSize(10)">10</a>
-        <a class="btn btn-default" ng-click="$ctrl.pageIdSize(50)">50</a>
-        <a class="btn btn-default" ng-click="$ctrl.pageIdSize(100)">100</a>
-    </div>
+
+    <cdb-pagination page="$ctrl.page"></cdb-pagination>
 
 </footer>

@@ -13,33 +13,15 @@
         vm.$onInit = $onInit;
 
         function $onInit() {
+            $log.debug('DashboardController init');
             computerService.list.then((response) => {
                 vm.list = response.data;
+                $log.debug(vm.list);
             });
             computerService.page.then((response) => {
                 vm.page = response.data;
                 $log.debug(vm.page);
             });
-        }
-
-        vm.nextPage = () => {
-            computerService.pageId(vm.page.currentPage + 1).then((response) => {
-                vm.page = response.data;
-            })
-        };
-
-        vm.previousPage = () => {
-            if (vm.page.currentPage > 0) {
-                computerService.pageId(vm.page.currentPage - 1).then((response) => {
-                    vm.page = response.data;
-                })
-            }
-        };
-
-        vm.changePageSize = (size) => {
-            computerService.pageSize(size).then((response) => {
-                vm.page = response.data;
-            })
         }
     }
 })();

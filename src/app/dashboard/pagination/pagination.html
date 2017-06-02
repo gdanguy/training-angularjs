@@ -1,0 +1,19 @@
+<div class="container text-center">
+    <ul class="pagination">
+        <li>
+            <a ng-click="$ctrl.previousPage()" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li>
+            <a ng-click="$ctrl.nextPage()" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="btn-group btn-group-sm pull-right" role="group" >
+    <a class="btn btn-default" ng-click="$ctrl.changePageSize(10)">10</a>
+    <a class="btn btn-default" ng-click="$ctrl.changePageSize(50)">50</a>
+    <a class="btn btn-default" ng-click="$ctrl.changePageSize(100)">100</a>
+</div>
