@@ -5,7 +5,9 @@
         'ui.router',
         'blocks',
         'app.hello',
-        'app.dashboard'
+        'app.dashboard'//,
+        //'app.add',
+        //'app.edit'
     ]);
 
 })();
