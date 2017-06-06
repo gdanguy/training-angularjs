@@ -1,20 +1,26 @@
 (function () {
     'use strict';
 
-    angular.module('app.edit')
+    angular.module('app.dashboard')
         .component('cdbEdit', {
-            templateUrl: 'src/app/edit/edit.html',
+            templateUrl: 'src/app/dashboard/edit/editComputer.html',
             controller: EditController
         });
     /* @ngInject */
-    function EditController(computerService, $log) {
+    function EditController(companyService, computerService, $log) {
         // jshint validthis: true
         const vm = this;
         vm.$onInit = $onInit;
 
         function $onInit() {
-            computerService.list.then((response) => {
-                vm.page = response.data;
+            companyService.list.then((response) => {
+                vm.companies = response.data;
+                $log.debug(vm.companies);
+            });
+
+            computerService.get($stateParams.id).then((response) => {
+                vm.computer = response.data;
+                $log.debug(vm.computer)
             });
         }
     }

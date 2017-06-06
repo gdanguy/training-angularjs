@@ -1,9 +1,9 @@
-<cdb-header page="$ctrl.page"></cdb-header>
+<cdb-header></cdb-header>
 
 <section id="main">
     <div class="container">
         <h1 id="homeTitle">
-            {{$ctrl.list.length}} Computers found
+            {{$ctrl.list.length}} {{ 'found' | translate }}
         </h1>
         <div id="actions" class="form-horizontal">
             <div class="pull-left">
@@ -15,8 +15,8 @@
                 </form>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" id="addComputer" href="/add">Add Computer</a>
-                <a class="btn btn-default" id="editComputer" href="#" onclick="$.fn.toggleEditMode();">Edit</a>
+                <a class="btn btn-success" id="addComputer" href="/add">{{ 'btn.add' | translate }}</a>
+                <a class="btn btn-default" id="editComputer" href="#" onclick="$.fn.toggleEditMode();">{{ 'btn.edit' | translate }}</a>
             </div>
         </div>
     </div>
@@ -40,21 +40,10 @@
                                     </a>
                     </span>
                 </th>
-                <th>
-                    Computer name
-                </th>
-                <th>
-                    Introduced date
-                </th>
-                <!-- Table header for Discontinued Date -->
-                <th>
-                    Discontinued date
-                </th>
-                <!-- Table header for Company -->
-                <th>
-                    Company
-                </th>
-
+                <th translate> tb.computerName </th>
+                <th translate> tb.intro </th>
+                <th translate> tb.disco </th>
+                <th translate> tb.company </th>
             </tr>
 
             </thead>
@@ -67,8 +56,8 @@
                 <td>
                     <a href="/edit?id={{computer.id}}" onclick="">{{computer.name}}</a>
                 </td>
-                <td>{{computer.introduced}}</td>
-                <td>{{computer.discontinued}}</td>
+                <td>{{computer.introduced.toLocalDateSpring()}}</td>
+                <td>{{computer.discontinued.toLocalDateSpring()}}</td>
                 <td>{{computer.company.name}}</td>
 
             </tr>

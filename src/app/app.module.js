@@ -5,9 +5,8 @@
         'ui.router',
         'blocks',
         'app.hello',
-        'app.dashboard'//,
-        //'app.add',
-        //'app.edit'
+        'app.dashboard',
+        'pascalprecht.translate'
     ]);
 
 })();
