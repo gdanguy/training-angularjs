@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('app.dashboard.service.company', [])
+    angular.module('app.dashboard.service.company', ['app.dashboard.model'])
         .factory('companyService', companyService);
     /* @ngInject */
     function companyService($http) {

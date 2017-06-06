@@ -1,6 +1,6 @@
 {
     "title": "Computer-database",
-    "found": "Ordinateur trouvés",
+    "found": "Ordinateurs trouvés",
     "btn.add": "Ajouter un ordinateur",
     "btn.edit": "Modifier un ordinateur",
     "tb.computerName": "Nom de l'odrinateur",

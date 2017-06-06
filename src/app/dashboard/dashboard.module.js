@@ -4,7 +4,8 @@
         'app.dashboard.service.computer',
         'app.dashboard.service.company',
         'app.dashboard.header',
-        'app.dashboard.pagination'
+        'app.dashboard.pagination',
+        'app.dashboard.model'
     ]);
 
 })();
