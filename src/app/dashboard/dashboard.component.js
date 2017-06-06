@@ -4,7 +4,8 @@
     angular.module('app.dashboard')
         .component('cdbDashboard', {
             templateUrl: 'src/app/dashboard/dashboard.html',
-            controller: DashboardController
+            controller: DashboardController,
+            styleUrls: ['dashboard.scss']
         });
     /* @ngInject */
     function DashboardController(computerService, $log, Computer) {
@@ -29,8 +30,7 @@
 
         function listMapper(listIn) {
             var list=[];
-            for(var i= 0; i < listIn.length; i++)
-            {
+            for(var i= 0; i < listIn.length; i++){
                 list.push(Computer.mapper(listIn[i]));
             }
             listIn = list;
@@ -39,8 +39,7 @@
 
         function pageMapper(page) {
             var list=[];
-            for(var i= 0; i < page.listPage.length; i++)
-            {
+            for(var i= 0; i < page.listPage.length; i++){
                 list.push(Computer.mapper(page.listPage[i]));
             }
             page.listPage = list;
