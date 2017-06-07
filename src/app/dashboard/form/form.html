@@ -3,23 +3,25 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2 box">
-                <h1>Add Computer</h1>
-                <form ng-submit="$ctrl.submit()" method="POST">
+                <h1 ng-if="$ctrl.id != undefined" translate>btn.edit</h1>
+                <h1 ng-if="$ctrl.id == undefined" translate>btn.add</h1>
+                <form>
+                    <input type="hidden" value="{{$ctrl.id}}" id="id" ng-if="$ctrl.id != undefined"/>
                     <fieldset>
                         <div class="form-group">
-                            <label for="computerName">Computer name</label>
+                            <label for="computerName" translate>tb.computerName</label>
                             <input type="text" class="form-control" id="computerName" placeholder="Computer name">
                         </div>
                         <div class="form-group">
-                            <label for="introduced">Introduced date</label>
+                            <label for="introduced" translate>tb.intro</label>
                             <input type="date" class="form-control" id="introduced" placeholder="Introduced date">
                         </div>
                         <div class="form-group">
-                            <label for="discontinued">Discontinued date</label>
+                            <label for="discontinued" translate>tb.disco</label>
                             <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date">
                         </div>
                         <div class="form-group">
-                            <label for="companyId">Company</label>
+                            <label for="companyId" translate>tb.company</label>
                             <select class="form-control" id="companyId" >
                                 <option value="0">--</option>
                                 <option ng-repeat="company in $ctrl.companies" value="{{company.id}}">{{company.name}}</option>
@@ -27,9 +29,10 @@
                         </div>
                     </fieldset>
                     <div class="actions pull-right">
-                        <input type="submit" value="Add" class="btn btn-primary">
+                        <input type="submit" value="{{ 'btn.save' | translate }}" class="btn btn-primary" ng-if="$ctrl.id != undefined" ng-click="$ctrl.addComputer(computer)">
+                        <input type="submit" value="{{ 'btn.save' | translate }}" class="btn btn-primary" ng-if="$ctrl.id == undefined" ng-click="$ctrl.editComputer(computer)">
                         or
-                        <a href="/dashboard" class="btn btn-default">Cancel</a>
+                        <a href="/dashboard" class="btn btn-default" translate>btn.cancel</a>
                     </div>
                 </form>
             </div>
